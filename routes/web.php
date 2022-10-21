@@ -31,3 +31,7 @@ Route::get('/resume', function () {
 Route::get('/contact', function () {
     return view('Contact');
 });
+
+Route::get('/krs', function () {
+    return view('krs');
+});
