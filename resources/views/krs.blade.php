@@ -58,6 +58,10 @@ body{
                     <a class="nav-link active" aria-current="page" href="/krs">Lihat KRS</a>
                   </li>
 
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/khs">Lihat KHS</a>
+                  </li>
+
                 </ul>
                 <form class="d-flex" role="search">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -114,7 +118,7 @@ body{
                     <?php
                         $total=0;
                         $id=1;
-                        while($id<7){                    
+                        while($id<4){                    
                             $temp = $total + DB::table('matakuliah')->where('id_matakuliah',$id)->value('sks');
                             $total = $temp;
                             $id++;
@@ -160,8 +164,7 @@ body{
 
                             $no++;
                         }
-                    ?>
-                  
+                    ?>           
 
                 </table>
             </div>

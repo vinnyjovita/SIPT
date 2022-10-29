@@ -35,3 +35,7 @@ Route::get('/contact', function () {
 Route::get('/krs', function () {
     return view('krs');
 });
+
+Route::get('/khs', function () {
+    return view('khs');
+});
