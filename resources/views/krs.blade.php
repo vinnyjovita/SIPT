@@ -141,7 +141,7 @@ body{
                     </tr>
                     <?php
                         $no=1;
-                        while ($no<7) {
+                        while ($no<4) {
                             
                             $kodematakuliah = DB::table('matakuliah')
                             ->where('id_matakuliah', $no)

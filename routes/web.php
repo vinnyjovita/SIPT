@@ -39,3 +39,8 @@ Route::get('/krs', function () {
 Route::get('/khs', function () {
     return view('khs');
 });
+
+Route::get('/admin', function () { 
+    return view('admin'); 
+});
+

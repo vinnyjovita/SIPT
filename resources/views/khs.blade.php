@@ -114,16 +114,36 @@ body{
                     </tr>
 
                     <tr>
-                    <td><h4>Total SKS</h4></td>    
+                    <td><h4>Total IP</h4></td>    
                     <?php
-                        $total=0;
-                        $id=1;
-                        while($id<7){                    
-                            $temp = $total + DB::table('matakuliah')->where('id_matakuliah',$id)->value('sks');
-                            $total = $temp;
-                            $id++;
+                        $khs=140302;
+                        $no=1;
+                    
+                        $totalip=0;
+                        $totalsks=0;
+                        
+                        while($no<10){
+                            $sks = DB::table('matakuliah')
+                            ->where('id_matakuliah', $no)
+                            ->value('sks');
+
+                            $temp = $totalsks + $sks;
+                            $totalsks = $temp;
+                            
+                            $nilaihuruf = DB::table('khs_detail')
+                            ->where('kode_khs', $khs)
+                            ->value('NilaiHuruf');
+
+                            if($nilaihuruf == 'A'){
+                                $temp2=$totalip + (4*$sks);
+                                $totalip=$temp2;
+                            }
+
+                            $no++;
+                            $khs++;
                         }
-                        echo "<td><h4>".$total."</h4></td>";
+
+                        echo "<td><h4>".$totalip/$totalsks."</h4></td>";
                     ?>
                     </tr>                
             </div>
@@ -166,36 +186,6 @@ body{
                         }
                     ?>
                     
-                    <?php
-                        $khs=1000001;
-                        $no=7;
-                    
-                        $totalip=0;
-                        $totalsks=0;
-                        
-                        while($no<10){
-                            $sks = DB::table('matakuliah')
-                            ->where('id_matakuliah', $no)
-                            ->value('sks');
-
-                            $temp = $totalsks + $sks;
-                            $totalsks = $temp;
-                            
-                            $nilaihuruf = DB::table('khs_detail')
-                            ->where('kode_khs', $khs)
-                            ->value('NilaiHuruf');
-
-                            if($nilaihuruf == 'A'){
-                                $temp2=$totalip + (4*$sks);
-                                $totalip=$temp2;
-                            }
-
-                            $no++;
-                            $khs++;
-                        }
-
-                        echo "<td><h4>".$totalip/$totalsks."</h4></td>";
-                    ?>
 
                 </table>
             </div>
