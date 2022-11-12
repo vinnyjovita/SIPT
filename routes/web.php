@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,9 @@ Route::get('/admin', function () {
     return view('admin'); 
 });
 
+Route::get('/laporan/mahasiswa',[LaporanController::class,'index']);
+Route::get('/laporan/mahasiswa/pdf',[LaporanController::class,'cetak_pdf']);
+Route::resource('admin/dosen', 'App\Http\Controllers\Admin\DosenController');
+Route::resource('mahasiswa', 'App\\mahasiswaController');
+Route::resource('admin/dosen', 'App\Http\Controllers\Admin\DosenController');
+Route::resource('admin/mahasiswa', 'App\Http\Controllers\Admin\mahasiswaController');
